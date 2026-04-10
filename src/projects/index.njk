@@ -1,0 +1,31 @@
+---
+layout: layouts/base.njk
+title: Projects
+description: Active and archived projects.
+---
+<h1 class="section-header">Projects</h1>
+
+<p style="color:var(--fg-dim); margin-bottom:1rem; font-size:0.85rem;">
+  Active projects, tools, and experiments. Source available where linked.
+</p>
+
+<ul class="project-list">
+  {% for project in projects_data %}
+  <li class="project-card">
+    <div class="project-name">{{ project.name }}</div>
+    <div class="project-desc">{{ project.description }}</div>
+    <div class="project-status">{{ project.status }}</div>
+    <div class="project-links">
+      {% if project.url %}<a href="{{ project.url }}">[view]</a>{% endif %}
+      {% if project.repo %}<a href="{{ project.repo }}">[source]</a>{% endif %}
+    </div>
+    {% if project.tags %}
+    <div class="report-tags" style="margin-top:0.35rem;">
+      {% for tag in project.tags %}
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>

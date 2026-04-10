@@ -1,0 +1,5 @@
+{
+  "layout": "layouts/report.njk",
+  "tags": ["report"],
+  "permalink": "/reports/{{ page.fileSlug }}/"
+}

@@ -1,0 +1,29 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tagName
+  filter:
+    - all
+    - report
+    - reports
+    - tagList
+layout: layouts/base.njk
+permalink: /tags/{{ tagName | slugify }}/
+eleventyComputed:
+  title: "Tagged: {{ tagName }}"
+  description: "Reports tagged with {{ tagName }}"
+---
+<h1 class="section-header">#{{ tagName }}</h1>
+
+<ul class="report-list">
+  {% set taggedReports = collections[tagName] %}
+  {% for report in taggedReports | reverse %}
+  <li class="report-item">
+    <span class="report-date">{{ report.date | readableDate }}</span>
+    <span class="report-title"><a href="{{ report.url }}">{{ report.data.title }}</a></span>
+  </li>
+  {% endfor %}
+</ul>
+
+<p style="margin-top:1rem; font-size:0.85rem;"><a href="/tags/">&larr; All tags</a></p>

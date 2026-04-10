@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Project Aurora",
+    "description": "An experimental tool for automated log analysis and anomaly detection.",
+    "status": "active",
+    "url": "",
+    "repo": "https://github.com/NorthernReach/aurora",
+    "tags": ["python", "analysis"]
+  },
+  {
+    "name": "Signal Mapper",
+    "description": "Network topology visualization and signal strength mapping utility.",
+    "status": "in-progress",
+    "url": "",
+    "repo": "https://github.com/NorthernReach/signal-mapper",
+    "tags": ["networking", "visualization"]
+  },
+  {
+    "name": "Cipher Toolkit",
+    "description": "Collection of classic and modern cipher implementations for educational purposes.",
+    "status": "complete",
+    "url": "https://northernreach.org/cipher-toolkit/",
+    "repo": "https://github.com/NorthernReach/cipher-toolkit",
+    "tags": ["cryptography", "education"]
+  }
+]

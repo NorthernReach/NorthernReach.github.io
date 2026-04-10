@@ -1,0 +1,49 @@
+---
+layout: layouts/base.njk
+title: Home
+---
+<div class="nfo-box-double" data-title="Transmission">
+  <p>Welcome to <span class="ansi-cyan">Northern Reach</span> — a collection of reports, projects, and documentation from the frontier.</p>
+  <p style="margin-top:0.5rem; color:var(--fg-dim);">Navigate using the links above or the terminal below. Type <code>help</code> in the command bar for available commands.</p>
+</div>
+
+<h2 class="section-header">Recent Reports</h2>
+
+<ul class="report-list">
+  {% set reportList = collections.reports | head(5) %}
+  {% for report in reportList %}
+  <li class="report-item">
+    <span class="report-date">{{ report.date | readableDate }}</span>
+    <span class="report-title"><a href="{{ report.url }}">{{ report.data.title }}</a></span>
+    <span class="report-excerpt">{{ report.content | excerpt }}</span>
+    {% if report.data.tags %}
+    <span class="report-tags">
+      {% for tag in report.data.tags | filterTagList %}
+        <a href="/tags/{{ tag | slugify }}/" class="tag">{{ tag }}</a>
+      {% endfor %}
+    </span>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+<p style="margin-top:1rem; font-size:0.85rem;"><a href="/reports/">View all reports &rarr;</a></p>
+
+<h2 class="section-header">Active Projects</h2>
+
+{% set projects = projects_data %}
+{% if projects %}
+<ul class="project-list">
+  {% for project in projects | head(3) %}
+  <li class="project-card">
+    <div class="project-name">{{ project.name }}</div>
+    <div class="project-desc">{{ project.description }}</div>
+    <div class="project-links">
+      {% if project.url %}<a href="{{ project.url }}">[view]</a>{% endif %}
+      {% if project.repo %}<a href="{{ project.repo }}">[source]</a>{% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+<p style="margin-top:1rem; font-size:0.85rem;"><a href="/projects/">View all projects &rarr;</a></p>
+{% endif %}

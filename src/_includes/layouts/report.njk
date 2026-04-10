@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+---
+<article class="report">
+  <div class="report-header">
+    <h1>{{ title }}</h1>
+    <div class="report-meta">
+      <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+      {% if category %} &middot; <span class="ansi-yellow">{{ category }}</span>{% endif %}
+    </div>
+    {% if tags %}
+    <div class="report-tags">
+      {% for tag in tags | filterTagList %}
+        <a href="/tags/{{ tag | slugify }}/" class="tag">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="nfo-hr" aria-hidden="true"></div>
+
+  <div class="report-content">
+    {{ content | safe }}
+  </div>
+
+  <div class="nfo-hr" aria-hidden="true"></div>
+
+  <nav class="report-nav" aria-label="Report navigation">
+    <p style="font-size:0.8rem; color:var(--fg-dim);">
+      <a href="/reports/">&larr; Back to all reports</a>
+    </p>
+  </nav>
+</article>

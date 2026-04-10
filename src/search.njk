@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+title: Search
+description: Search all reports and content.
+permalink: /search.json
+eleventyExcludeFromCollections: true
+---
+[
+  {% for report in collections.reports %}
+  {
+    "title": {{ report.data.title | jsonify | safe }},
+    "url": "{{ report.url }}",
+    "date": "{{ report.date | readableDate }}",
+    "tags": {{ report.data.tags | filterTagList | jsonify | safe }},
+    "category": {{ (report.data.category or "") | jsonify | safe }},
+    "content": {{ report.content | excerpt | jsonify | safe }}
+  }{% if not loop.last %},{% endif %}
+  {% endfor %}
+]

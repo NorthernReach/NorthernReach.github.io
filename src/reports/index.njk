@@ -1,0 +1,31 @@
+---
+layout: layouts/base.njk
+title: Reports
+description: Field reports, notes, and documentation.
+permalink: /reports/
+tags: []
+---
+<h1 class="section-header">All Reports</h1>
+
+<div class="tag-cloud" style="margin-bottom:1rem;">
+  {% for tag in collections.tagList %}
+    <a href="/tags/{{ tag | slugify }}/" class="tag">{{ tag }}</a>
+  {% endfor %}
+</div>
+
+<ul class="report-list">
+  {% for report in collections.reports %}
+  <li class="report-item">
+    <span class="report-date">{{ report.date | readableDate }}</span>
+    <span class="report-title"><a href="{{ report.url }}">{{ report.data.title }}</a></span>
+    <span class="report-excerpt">{{ report.content | excerpt }}</span>
+    {% if report.data.tags %}
+    <span class="report-tags">
+      {% for tag in report.data.tags | filterTagList %}
+        <a href="/tags/{{ tag | slugify }}/" class="tag">{{ tag }}</a>
+      {% endfor %}
+    </span>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+title: Tags
+description: Browse reports by tag.
+permalink: /tags/
+---
+<h1 class="section-header">Tags</h1>
+
+<div class="tag-cloud">
+  {% for tag in collections.tagList %}
+    <a href="/tags/{{ tag | slugify }}/" class="tag">{{ tag }}</a>
+  {% endfor %}
+</div>
