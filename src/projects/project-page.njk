@@ -1,0 +1,51 @@
+---
+pagination:
+  data: projects_data
+  size: 1
+  alias: project
+layout: layouts/base.njk
+permalink: /projects/{{ project.slug }}/
+eleventyComputed:
+  title: "{{ project.name }}"
+  description: "{{ project.description }}"
+---
+<article class="report">
+  <div class="report-header">
+    <h1>{{ project.name }}</h1>
+    <div class="report-meta">
+      <span class="ansi-yellow">{{ project.status }}</span>
+      {% if project.repo %} &middot; <a href="{{ project.repo }}" target="_blank" rel="noopener">[repository]</a>{% endif %}
+    </div>
+    {% if project.tags %}
+    <div class="report-tags">
+      {% for tag in project.tags %}
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="nfo-hr" aria-hidden="true"></div>
+
+  <div class="report-content" id="readme-content">
+    <div class="readme-loading">
+      <span class="ansi-dim">Fetching README from source repository</span><span class="typing-cursor"></span>
+    </div>
+  </div>
+
+  <div class="nfo-hr" aria-hidden="true"></div>
+
+  <nav class="report-nav" aria-label="Project navigation">
+    <p style="font-size:0.8rem; color:var(--fg-dim);">
+      <a href="/projects/">&larr; Back to all projects</a>
+    </p>
+  </nav>
+</article>
+
+{% if project.readme %}
+<script>
+  window.__projectReadme = "{{ project.readme }}";
+  window.__projectRepo = "{{ project.repo }}";
+</script>
+<script src="/assets/js/readme-renderer.js" defer></script>
+{% endif %}

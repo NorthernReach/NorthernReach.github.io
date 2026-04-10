@@ -16,8 +16,8 @@ description: Active and archived projects.
     <div class="project-desc">{{ project.description }}</div>
     <div class="project-status">{{ project.status }}</div>
     <div class="project-links">
-      {% if project.url %}<a href="{{ project.url }}">[view]</a>{% endif %}
-      {% if project.repo %}<a href="{{ project.repo }}">[source]</a>{% endif %}
+      {% if project.readme %}<a href="/projects/{{ project.slug }}/">[view]</a>{% endif %}
+      {% if project.repo %}<a href="{{ project.repo }}" target="_blank" rel="noopener">[source]</a>{% endif %}
     </div>
     {% if project.tags %}
     <div class="report-tags" style="margin-top:0.35rem;">
