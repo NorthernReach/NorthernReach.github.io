@@ -71,16 +71,22 @@ body {
 body::after {
   content: "";
   position: fixed;
-  inset: 0;
+  inset: -4px;
   background: repeating-linear-gradient(
     0deg,
     transparent,
     transparent 2px,
-    rgba(0, 0, 0, 0.08) 2px,
-    rgba(0, 0, 0, 0.08) 4px
+    rgba(255, 255, 255, 0.025) 2px,
+    rgba(0, 0, 0, 0.15) 3px
   );
   pointer-events: none;
   z-index: 9999;
+  animation: scanline-drift 60s linear infinite;
+}
+
+@keyframes scanline-drift {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(6px); }
 }
 
 /* CRT vignette */

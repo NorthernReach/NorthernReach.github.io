@@ -3,7 +3,7 @@
     "name": "Preconfigured Exegol Resources Kit [PERK]",
     "description": "Add tools and customizations to Exegol images during deployment",
     "status": "active",
-    "url": "",
+    "url": "https://github.com/NorthernReach/PERK",
     "repo": "https://github.com/NorthernReach/PERK",
     "tags": ["pentest", "containers", "tools"]
   },
@@ -11,7 +11,7 @@
     "name": "Contaigen",
     "description": "Docker container images tailored for security operations",
     "status": "active",
-    "url": "https://northernreach.org/contaigen/",
+    "url": "https://github.com/NorthernReach/contaigen",
     "repo": "https://github.com/NorthernReach/contaigen",
     "tags": ["containers", "pentest"]
   }
