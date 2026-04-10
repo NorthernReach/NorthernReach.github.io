@@ -158,8 +158,9 @@
         return [
           line("info", ""),
           line("cmd", "╔══════════════════════════════════════╗"),
-          line("cmd", "║     NORTHERN REACH TERMINAL v1.0    ║"),
-          line("cmd", "║   // signals from the frontier //   ║"),
+          line("cmd", "║     NORTHERN REACH TERMINAL v1.0     ║"),
+          line("cmd", "║  ----------------------------------  ║"),
+          line("cmd", "║   // signals from the frontier //    ║"),
           line("cmd", "╚══════════════════════════════════════╝"),
           line("info", ""),
           line("info", "Type 'help' for available commands."),

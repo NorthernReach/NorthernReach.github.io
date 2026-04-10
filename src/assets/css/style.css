@@ -63,8 +63,8 @@ body {
   background: var(--bg);
   color: var(--fg);
   line-height: var(--line-height);
-  min-height: 100vh;
-  overflow-x: hidden;
+  height: 100vh;
+  overflow: hidden;
 }
 
 /* Scanline overlay */
@@ -140,9 +140,18 @@ a:visited:hover {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: var(--gap);
-  min-height: 100vh;
+  /* Height set by pager.js to fill viewport minus terminal bar */
+  overflow: hidden auto;
   display: flex;
   flex-direction: column;
+}
+
+/* Hide native scrollbar — pager controls scrolling */
+.site-wrapper::-webkit-scrollbar {
+  width: 4px;
+}
+.site-wrapper::-webkit-scrollbar-thumb {
+  background: var(--mid-gray);
 }
 
 .site-main {
@@ -599,6 +608,7 @@ a:visited:hover {
 
 .terminal-output-line {
   margin: 0.15rem 0;
+  white-space: pre;
 }
 
 .terminal-output-line a {
@@ -615,6 +625,30 @@ a:visited:hover {
 
 .terminal-output-error {
   color: var(--red);
+}
+
+/* ============================================================
+   PAGER STATUS BAR
+   ============================================================ */
+
+.pager-status {
+  position: fixed;
+  bottom: 2rem; /* sits above terminal bar */
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  border-top: 1px solid var(--mid-gray);
+  padding: 0.15rem 1rem;
+  font-size: 0.7rem;
+  color: var(--fg-dim);
+  z-index: 997;
+  text-align: center;
+  display: none;
+  letter-spacing: 0.05em;
+}
+
+.pager-status.active {
+  display: block;
 }
 
 /* ============================================================
@@ -648,7 +682,7 @@ a:visited:hover {
   border-top: 1px solid var(--border);
   padding: var(--gap) 0;
   margin-top: 2rem;
-  margin-bottom: 2.5rem; /* space for terminal bar */
+  margin-bottom: 3.5rem; /* space for pager status + terminal bar */
   color: var(--fg-dim);
   font-size: 0.75rem;
   text-align: center;

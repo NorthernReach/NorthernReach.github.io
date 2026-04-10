@@ -1,26 +1,18 @@
 [
   {
-    "name": "Project Aurora",
-    "description": "An experimental tool for automated log analysis and anomaly detection.",
+    "name": "Preconfigured Exegol Resources Kit [PERK]",
+    "description": "Add tools and customizations to Exegol images during deployment",
     "status": "active",
     "url": "",
-    "repo": "https://github.com/NorthernReach/aurora",
-    "tags": ["python", "analysis"]
+    "repo": "https://github.com/NorthernReach/PERK",
+    "tags": ["pentest", "containers", "tools"]
   },
   {
-    "name": "Signal Mapper",
-    "description": "Network topology visualization and signal strength mapping utility.",
-    "status": "in-progress",
-    "url": "",
-    "repo": "https://github.com/NorthernReach/signal-mapper",
-    "tags": ["networking", "visualization"]
-  },
-  {
-    "name": "Cipher Toolkit",
-    "description": "Collection of classic and modern cipher implementations for educational purposes.",
-    "status": "complete",
-    "url": "https://northernreach.org/cipher-toolkit/",
-    "repo": "https://github.com/NorthernReach/cipher-toolkit",
-    "tags": ["cryptography", "education"]
+    "name": "Contaigen",
+    "description": "Docker container images tailored for security operations",
+    "status": "active",
+    "url": "https://northernreach.org/contaigen/",
+    "repo": "https://github.com/NorthernReach/contaigen",
+    "tags": ["containers", "pentest"]
   }
 ]
